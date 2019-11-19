@@ -1,0 +1,13 @@
+.letterBtn{
+	border-radius: 17%;
+	width: 7vw;
+	height: 5vh;
+}
+
+body{
+	position: absolute;
+	height: 95vh;
+	width: 95vw;
+	max-width: 95vw;
+	display:block;
+}
