@@ -1,13 +1,82 @@
+#buttonDiv{
+	top: 50vh;
+	text-align: center;
+}
+
 .letterBtn{
-	border-radius: 17%;
-	width: 7vw;
-	height: 5vh;
+	border-radius: 45%;
+	position: relative;
+	width: 12vw;
+	height: 10vh;
+	font-size: 5vh;
+	margin: 1vw;
+	background-image: url('../img/button.png');
+	background-size: auto; 
 }
 
 body{
+	text-align:center;
 	position: absolute;
 	height: 95vh;
 	width: 95vw;
 	max-width: 95vw;
 	display:block;
+	font-size: 2vw;
+	font-family: monospace;
+	background-image: linear-gradient(110deg,#2c3e50,#27ae60,#2980b9,#e74c3c,#898922);
+	background-size: 400% 400%;
+	animation: backgroundAnimation 25s infinite;
+}
+
+h1{
+	text-align: center;
+	font-size: 8vw
+}
+
+@keyframes backgroundAnimation{
+	
+	0%{
+		background-position: 0% 50%;
+	}
+	50%{
+		background-position: 100% 50%;
+	}
+	100%{
+		background-position: 0% 50%;
+	}
+}
+
+#restartButton{
+	position: relative;
+	top: -1.4vh;
+	width: 14vw;
+	height: 5vh;
+	font-size: 3vw;
+}
+
+#hangmanZone{
+	display: block;
+	text-align: center;
+	top: 18vh;
+	width: 95vw;
+	height: auto;
+	font-size: 13vw;
+	letter-spacing: 2vw;
+	padding: 2vh;
+	margin-right: 5vw;
+}
+
+#moreGame{
+	display: none;
+	position: relative;
+	left: 33vw;
+	width: 30vw;
+	height: 5vh;
+	font-size: 2vh;
+}
+
+#winZone{
+	text-align: center;
+	padding: 1vh;
+	font-size: 8vw;
 }
