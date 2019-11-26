@@ -1,10 +1,8 @@
-////////////////////////////////
-////orders for YunYung//////////
-///////////////////////////////*
+/*
 add @media for big screen... or small screen.
 
 right now css works for small screen.
-*//////////////////////////////
+*/
 
 #buttonDiv{
 	top: 50vh;
@@ -79,7 +77,7 @@ h1{
 	display: none;
 	position: relative;
 	left: 33vw;
-	width: 30vw;
+	width: 29vw;
 	height: 5vh;
 	font-size: 2vh;
 }
@@ -88,4 +86,94 @@ h1{
 	text-align: center;
 	padding: 1vh;
 	font-size: 8vw;
+}
+
+@media only screen and (min-width: 600px) and (max-width: 899px) {
+	#buttonDiv{
+		top: 80vh;
+	}
+
+	.letterBtn{
+		width: 11vw;
+		height: 11vh;
+		font-size: 8vh;
+		margin: 1.5vh 3vw 1.5vh;
+		background-size: length 30vw; 
+	}
+
+	#restartButton{
+		width: 15vw;
+		height: 6vh;
+		font-size: 3vw;
+	}
+
+	body{
+		background-size: 500% 500%;
+	}
+
+	#moreGame{
+		left: 40vw;
+		width: 20vw;
+		height: 6vh;
+	}
+}
+
+@media only screen and (min-width: 900px) and (max-width: 1199px) {
+	#buttonDiv{
+		top: 100vh;
+	}
+
+	.letterBtn{
+		width: 9vw;
+		height: 11vh;
+		font-size: 7vh;
+		margin: 2vh 2.5vw 2vh;
+		background-size: length 30vw; 
+	}
+
+	#restartButton{
+		width: 17vw;
+		height: 8vh;
+		font-size: 4vw;
+	}
+
+	body{
+		background-size: 500% 500%;
+	}
+
+	#moreGame{
+		left: 41vw;
+		width: 14vw;
+		height: 7vh;
+	}
+}
+
+@media only screen and (min-width: 1200px) {
+	#buttonDiv{
+		top: 100vh;
+	}
+
+	.letterBtn{
+		width: 8vw;
+		height: 15vh;
+		font-size: 10vh;
+		margin: 2vh 1vw 2vh;
+		background-size: length 30vw; 
+	}
+
+	#restartButton{
+		width: 21vw;
+		height: 10vh;
+		font-size: 3vw;
+	}
+
+	body{
+		background-size: 500% 500%;
+	}
+
+	#moreGame{
+		left: 40vw;
+		width: 12vw;
+		height: 8vh;
+	}
 }
