@@ -20,28 +20,24 @@ let hintMulti = 2;
 let word = '';
 let hangmanList = populateList()
 
-console.log(hangmanList)
-
-
+//Launching game and configuration
 prepareGame();
 resetButton.onclick = function() {location.reload()};
 moreGame.onclick = prepareGame;
-hintButton.onclick = openNav;
+hintButton.onclick = openHint;
+closeButton.onclick = closeHint;
 
 
-////////////////////////////////////////
-///////Gameplay Loop////////////////////
-////////////////////////////////////////
-
-
+//main routine, handles gameplay loop
 function prepareGame(){
 	
 		
 	if (hangmanList.length > 0){
-	randomNum = Math.floor(Math.random() * hangmanList.length)
+		randomNum = Math.floor(Math.random() * hangmanList.length)
 	}
 	else{
-		winZone.innerHTML = "You've done got all the word";
+		score += life*scoreMulti*hintMulti;
+		winZone.innerHTML = "You've done got all the word! Score " + score;
 		buttonDiv.innerHTML = ''
 		moreGame.style.display = 'none';
 		score = 0;
@@ -64,6 +60,7 @@ function prepareGame(){
 }
 
 
+//checks word for selected letter, checks for win status.
 function checkWord(pickedLetter){
 	foundLetter = false;
 	wordStatus = revealLetter('')
@@ -75,16 +72,19 @@ function checkWord(pickedLetter){
 			foundLetter = true
 		}
 	}
+	
+	destroyButton(pickedLetter)
 		
 	if (word.join('') == wordStatus.join('')){
 		prepWin();
 	}
 	
-	destroyButton(pickedLetter)
+
 	manageLife(foundLetter, pickedLetter)
 }
 
 
+//manages user life and lose states
 function manageLife(foundLetter, pickedLetter){
 	
 	if (foundLetter == false){
@@ -102,6 +102,7 @@ function manageLife(foundLetter, pickedLetter){
 }
 
 
+//reveals letters as selected
 function revealLetter(thisIndex){
 	wordStatus = hangmanZone.textContent.split("")
 	wordStatus[thisIndex] = word[thisIndex]
@@ -110,7 +111,7 @@ function revealLetter(thisIndex){
 }
 
 
-// function prepare a win screen, and enable a new game button
+// function prepare a win screen, and enables a new game button
 function prepWin(){
 	buttonDiv.innerHTML = ''
 	moreGame.style.display = 'block';
@@ -119,11 +120,7 @@ function prepWin(){
 }
 
 
-////////////////////////////////////////
-////////Game Setup//////////////////////
-////////////////////////////////////////
-
-
+//populates hangmanList with objects that contain words and hints
 function populateList(){
 	let localList = []
 	
@@ -142,6 +139,8 @@ function populateList(){
 	return localList
 }
 
+
+//takes the selected word and displays _ for each letter to player
 function hideLetters(prepedWord){
 	let hangmanZone = document.getElementById('hangmanZone');
 	for (let i = 0; i < prepedWord.length; i++){
@@ -150,6 +149,7 @@ function hideLetters(prepedWord){
 }
 
 
+//turns choosen word into a list, populates hint screen with hint
 function prepareTheWord(choosenWord){
 	wordAsList = Array.from(choosenWord.word);
 	hintZone.innerHTML = choosenWord.hint
@@ -157,6 +157,7 @@ function prepareTheWord(choosenWord){
 }
 
 
+//makes all the buttons dynamically.
 function instantiateButtons(){
 	let letters = Array.from('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
 	for (let i = 0; i < 26; i++){
@@ -165,11 +166,13 @@ function instantiateButtons(){
 }
 
 
+//destroys buttons as they are picked
 function destroyButton(buttonLabel){
 	document.getElementById(buttonLabel + "Button").style.display = 'none';	
 }
 
 
+//button constructor
 function MakeButton(buttonLabel){
 	let input = document.createElement('input');
 	input.classList.add('letterBtn');
@@ -182,11 +185,15 @@ function MakeButton(buttonLabel){
 	buttonDiv.appendChild(input);
 }
 
-function openNav() {
+
+//open hint area
+function openHint() {
   document.getElementById("hintSN").style.width = "100%";
   hintMulti = 1;
 }
 
-function closeNav() {
+
+//close hint area
+function closeHint() {
   document.getElementById("hintSN").style.width = "0";
 }
