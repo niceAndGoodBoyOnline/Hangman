@@ -36,8 +36,7 @@ function prepareGame(){
 		randomNum = Math.floor(Math.random() * hangmanList.length)
 	}
 	else{
-		score += life*scoreMulti*hintMulti;
-		winZone.innerHTML = "You've done got all the word! Score " + score;
+		winZone.innerHTML = "You've done got all the word! Final Score " + score;
 		buttonDiv.innerHTML = ''
 		moreGame.style.display = 'none';
 		score = 0;
@@ -94,7 +93,7 @@ function manageLife(foundLetter, pickedLetter){
 	
 	
 	if (life < 1){
-		winZone.innerHTML = 'YOU LOSE M8'
+		winZone.innerHTML = 'YOU LOSE! Loser score: ' + score;
 		buttonDiv.innerHTML = ''
 		moreGame.style.display = 'block';
 		score = 0;
@@ -116,7 +115,7 @@ function prepWin(){
 	buttonDiv.innerHTML = ''
 	moreGame.style.display = 'block';
 	score += life*scoreMulti*hintMulti;
-	winZone.innerHTML += "Good Job! Your Score:" + score;
+	winZone.innerHTML += "Good Job! Your Current Score:" + score;
 }
 
 

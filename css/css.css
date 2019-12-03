@@ -20,6 +20,36 @@ body{
 	background-size: length 30vw; 
 }
 
+.hintScreen {
+  height: 100%; 
+  width: 0;
+  position: fixed; 
+  z-index: 1; 
+  top: 0;
+  left: 0;
+  background-color: #777;
+  overflow: hidden;
+  padding-top: 2vh; 
+  transition: 0.5s;
+}
+
+/* The navigation menu links */
+.hintScreen a {
+  text-decoration: none;
+  font-size: 3vh;
+  color: #111;
+  display: block;
+}
+
+/* Position and style the close button (top right corner) */
+.hintScreen .closeHintScreen {
+  position: absolute;
+  top: 0;
+  right: 1vw;
+  font-size: 10vh;
+  margin-left: 1vw;
+}
+
 
 #topH1{
 	display: inline-block;
@@ -144,7 +174,7 @@ h1{
 }
 
 #buttonDiv{
-	bottom: 20vh;
+	margin-left: 3vw;
 }
 
 .letterBtn{
@@ -190,7 +220,7 @@ h1{
 
 #moreGame{
 	left: 40vw;
-	width: auto;
+	width: auto;2
 	height: auto;
 	font-size: 3.5vh;
 	padding: 1.5vh;
@@ -204,33 +234,3 @@ h1{
 }
 
 
-
-.hintScreen {
-  height: 100%; 
-  width: 0;
-  position: fixed; 
-  z-index: 1; 
-  top: 0;
-  left: 0;
-  background-color: #777;
-  overflow: hidden;
-  padding-top: 2vh; 
-  transition: 0.5s;
-}
-
-/* The navigation menu links */
-.hintScreen a {
-  text-decoration: none;
-  font-size: 3vh;
-  color: #111;
-  display: block;
-}
-
-/* Position and style the close button (top right corner) */
-.hintScreen .closeHintScreen {
-  position: absolute;
-  top: 0;
-  right: 1vw;
-  font-size: 10vh;
-  margin-left: 1vw;
-}
